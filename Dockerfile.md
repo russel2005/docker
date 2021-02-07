@@ -6,7 +6,7 @@ FROM ubuntu:latest # - <image>:<tag>
 FROM ubuntu:precise (LTS)
 Set the maintainer info
 
-MAINTAINER Adam Veldhousen, adam@veldhousen.ninja # <name>
+MAINTAINER russel, abc@xyz.com # <name>
 Copy a local/remote file into the container Also supports auto extracting of .tar.gz into destination and can copy from remote locations (ie raw.github)
 
 ADD ./index.html /var/www/index.html # <src> <dest>
