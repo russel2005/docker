@@ -145,6 +145,7 @@ step) stop the container and remove
 #can we rename the container
 > docker rename oldname newname #any existing container rename
 
+#docker restart, it will stop all running container
 > service docker restart
 
 
