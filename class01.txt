@@ -1,0 +1,182 @@
+feb 13, 14 7am ist
+
+class: feb 06
+diagram share: app.diagrams.net
+
+
+command: 
+#docker is run or not check
+> service docker status
+
+#docker start
+#if the image is not present in locally it will download from dockerhub
+> docker run nginx
+
+#image check, image for downloaded
+> docker images
+
+#image is running on the background
+> docker ps -a
+
+# the existing image run, when don't need download, 
+# i can use same image in multiple container
+>docker run -d nginx
+
+# russel is the container name
+>docker run -d --name russel nginx
+
+docker ps -a> and <docker ps> different
+> docker ps #it shows up and runnning
+> docker ps -a #it shows up and running and other all container which is stop or other statuses.
+
+# docker --help
+> docker ps -all
+
+
+> docker run -d centos sleep 2600
+> docker ps -a
+
+#interactive mode, it inside the shell of container as terminal mode
+> docker run -it tomcat
+> hostname
+> df -kh
+>yum install -y git
+>yum install -y java_1.8_103
+
+interview question: how to come out from shell from container
+>CTL + P #comeout with out stop it
+
+>CTL + C or >exit # comeout from container
+
+#
+> docker run -d nginx
+
+# container has own ip not share the host ip address
+
+#find the ip for container
+> hostname -I
+# find public ip address in cloud
+> curl ifconfig.co
+
+# hostname doesn't show full cloud vam name, find with
+>hostname --fqdn
+
+
+#what is meta data? its about the data
+>docker inspect contaiderID #its show all meta data about the container, don't use multiple id
+
+# same ip address can't share with two container
+
+# every container has unique ip address
+
+>docker inspect containerID | grep "IP"
+
+
+#port forwarding and binding port
+# if we want to access container from thru the internet 
+
+# port mapping : port forwading or binding port
+# only we use port forwarding when we crate container, used or existing container can't do port forwarding
+> docker run -d -P nginx
+> docker ps # lets see the output: 0.0.0.0:34567/>80 #here 34567 is container port and it forwared with 80 port #
+
+> docker run -d -P nginx # it will use another port number
+> curl ifconfig.co
+> docker run -d -p 80:80 nginx # this called binding, careful use lower > -p
+
+#if we want to modify the container which is already created
+> docker exec -it containerID bash
+> df
+> docker ps
+
+>docker exec containerID touch /tmp/kush
+>docker exec containerID ls /tmp/
+
+>docker exec containerID apt-get install -y wget
+
+> docker exec containerID apt-get update
+
+> docker exec containerID apt-get install -y wget
+
+# best practice to modify container is without login
+
+
+#how to go inside the containerID
+> docker exec -it containerID bash
+
+# how to stop
+>docker stop containerID
+> docker ps  #output will show some flag value in STATUS
+
+# forcefully stop
+> docker kill containerID #forcefully stop, not gracefully
+# you can start again even when you stop container forcefully
+
+
+# how to restart
+> docker restart containerID # no container will lost with stop, start and run
+
+
+#how to see the log
+> docker logs containerID
+
+> docker logs -f containerID # f means flag
+> docker container prune # it will remove all stop container
+
+> docker stats # it will give how much resources consume each container
+> docker ps
+
+
+> docker top containerID #top process running showing list
+
+# delete the running container?
+step) stop the container and remove
+> docker stop containerID
+> docker rm contaiderID
+# never ever use -f , it will forcefully deleted
+
+
+#list the container which use port #
+> docker port containerID
+> docker ps
+> docker inspect
+#above all 3 cmd will show the port
+
+#can we rename the container
+> docker rename oldname newname #any existing container rename
+
+> service docker restart
+
+
+#default is no flag,
+# we have 4 flags: unless-stopped, on-failure, always, no
+
+#always flag
+>docker run -d -P --restart always nginx
+
+> service docker restart
+> service docker status
+
+# we can setup when we new container created, its not done after created
+
+
+#limited memory use while create
+> docker run -d -P --restart always --memory 500M nginx
+
+#what is the max limit interm of memory?
+not more than VM memory allocation
+
+>cat /proc/meminfo  #show the memory in vm
+
+# docker client is host
+3 components in docker engine
+-Daemon # when create container 
+-containerD # any container command go to here
+-Run C #only docker run command will go here
+
+#all continer will stop
+> docker stop $(docker ps -a -q)
+
+#all container start
+> docker start $(docker ps -a -q)
+
