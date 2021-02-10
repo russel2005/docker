@@ -149,7 +149,7 @@ step) stop the container and remove
 > service docker restart
 
 
-#default is no flag,
+# --restart flag, default is no flag,
 # we have 4 flags: unless-stopped, on-failure, always, no
 
 #always flag
