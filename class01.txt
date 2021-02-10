@@ -44,9 +44,9 @@ docker ps -a> and <docker ps> different
 >yum install -y java_1.8_103
 
 interview question: how to come out from shell from container
->CTL + P #comeout with out stop it
+> CTL +P +C or 
+> exit # comeout from container
 
->CTL + C or >exit # comeout from container
 
 #
 > docker run -d nginx
@@ -89,8 +89,8 @@ interview question: how to come out from shell from container
 > df
 > docker ps
 
->docker exec containerID touch /tmp/kush
->docker exec containerID ls /tmp/
+>docker exec containerID touch /tmp/kush  >>>>>>>>>>>>>>>>>>>>>>>
+>docker exec containerID ls /tmp/         >>>>>>>>>>>>>>>>>>>>>>>>>
 
 >docker exec containerID apt-get install -y wget
 
