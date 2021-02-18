@@ -72,17 +72,26 @@ interview question: how to come out from shell from container
 >docker inspect containerID | grep "IP"
 
 
-#port forwarding and binding port
+#port forwarding and port binding
+#===================================
 # if we want to access container from thru the internet 
 
 # port mapping : port forwading or binding port
-# only we use port forwarding when we crate container, used or existing container can't do port forwarding
+# only we use port forwarding when we create container, used or existing container can't do port forwarding
+# container port using -p flag and default ip 0.0.0.0
+syntex: docker fun -p<system_port>:<container_port> -d <containerName> <imageName>
 > docker run -d -P nginx
 > docker ps # lets see the output: 0.0.0.0:34567/>80 #here 34567 is container port and it forwared with 80 port #
 
 > docker run -d -P nginx # it will use another port number
 > curl ifconfig.co
 > docker run -d -p 80:80 nginx # this called binding, careful use lower > -p
+
+-d flag is used to start container in detached mode:
+> docker run -d -p 80:80 imageName
+
+all containers execute in foreground mode if the -d flag is not specifiec:
+>docker run --rum -p 80:80 imageName
 
 #if we want to modify the container which is already created
 > docker exec -it containerID bash
@@ -180,4 +189,6 @@ not more than VM memory allocation
 
 #all container start
 > docker start $(docker ps -a -q)
+
+#Docker CLI manage remote server operations and docker hub repository operations.
 
