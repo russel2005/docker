@@ -7,6 +7,12 @@
 'docker push'
 'docker export'
 
+`docker images`
+`docker search`
+`docker ps`
+`docker commit`
+`docker login`
+
 
 
 To run your image
