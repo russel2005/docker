@@ -1,0 +1,116 @@
+11  yum install -y docker
+   12  service docker status
+   13  service docker start
+   14  service docker status
+   15  clear
+   16  docker --version
+   17  docker images
+   18  docker ps
+   19  docker
+   20  cd /var/lib/docker
+   21  ls -alrt
+   22  clear
+   23  service docker status
+   24  service docker start
+   25  service docker status
+   26  clear
+   27  docker run nginx
+   28  docker images
+   29  docker ps -a
+   30  docker run -d nginx
+   31  docker ps -a
+   32  docker images
+   33  docker run -d --name krishna nginx
+   34  clear
+   35  docker ps -a
+   36  docker ps
+   37  docker run -d centos
+   38  docker images
+   39  docker ps -a
+   40  docker run -d centos sleep 2600
+   41  docker ps -a
+   42  clear
+   43  docker run -it nginx
+   44  docker run -it nginx
+   45  docker run -it centos
+   46  clear
+   47  docker run -it tomcat
+   48  docker ps
+   49  clear
+   50  docker run -it centos
+   51  docker run -it centos
+   52  docker ps
+   53  clear
+   54  docker ps
+   55  ifcofig
+   56  ifconfig
+   57  hostname -I
+   58  ping
+   59  ping google.com
+   60  curl ifconfig.co
+   61  hostname
+   62  whoami
+   63  hostname --fqdn
+   64  clear
+   65  docker ps
+   66  docker inspect a00a2542f668
+   67  docker ps
+   68  docker inspect 33b71856c548
+   69  docker inspect 33b71856c548 | grep "IP"
+   70  clear
+   71  docker run -d -P nginx
+   72  docker ps
+   73  docker run -d -P nginx
+   74  docker ps
+   75  curl ifconfig.co
+   76  docker run -d -p 80:80 nginx
+   77  curl ifconfig.co
+   78  docker run -d -p 80:80 nginx
+   79  docker run -d iis
+   80  docker run -d -p 50:80 nginx
+   81  clear
+   82  docker ps
+   83  docker run -d -P tomcat
+   84  docker ps
+   85  clear
+   86  docker ps
+   87  docker exec -it a00a2542f668 bash
+   88  clear
+   89  docker ps
+   90  docker exec a00a2542f668 touch /tmp/kush
+   91  docker exec a00a2542f668 ls /tmp/
+   92  docker exec a00a2542f668 apt-get install -y wget
+   93  docker exec a00a2542f668 apt-get update
+   94  clear
+   95  docker ps
+   96  docker port ccd93124317b
+   97  docker rename stoic_lewin kush123
+   98  docker ps
+   99  clear
+  100  docker ps
+  101  service docker restart
+  102  service docker status
+  103  clear
+  104  docker ps
+  105  docker ps -a
+  106  docker run -d -p --restart always nginx
+  107  docker run -d -P --restart always nginx
+  108  docker ps
+  109  service docker restart
+  110  service docker status
+  111  docker ps
+  112  clear
+  113  docker stats
+  114  docker run -d -P --restart always --memory 500M nginx
+  115  docker stats
+  116  cat /proc/meminfo
+  117  cat /proc/meminfo;1013032
+  118  clear
+  119  docker ps
+  120  docker stop $(docker ps -a -q)
+  121  docker ps
+  122  docker start $(docker ps -a -q)
+  123  docker ps
+  124  docker stop $(docker ps -a -q)
+  125  docker rm $(docker ps -a -q)
+  126  history
