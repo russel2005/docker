@@ -1,3 +1,14 @@
+Common Docker Commands:
+docker run
+docker start
+docker stop
+docker build
+docker pull
+docker push
+docker export
+
+
+
 To run your image
 
 docker run memcached # run your image
