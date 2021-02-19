@@ -20,6 +20,9 @@ there is no way to edit the image container, we need to recreate container
 1) dockerfile
 2) dockerhub
 
+RENAME docker image:
+$ docker tag OldName:tag NewName:tag
+
 two way create own image:
 1) manual
 2) automatic or  dockerfile
