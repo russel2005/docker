@@ -1,0 +1,155 @@
+Class 3 on Feb12/02/2021
+app.diagrams.net > for flowchart
+
+all dependencies we package together is called image.
+
+
+storage dirver
+overlay2 windowsfilter NTFS filesystem use
+
+
+Interveiw questions:
+Can i edit in the container?
+
+answer: docker exec
+
+
+what is thin writable layer? 
+there is no way to edit the image container, we need to recreate container
+
+1) dockerfile
+2) dockerhub
+
+two way create own image:
+1) manual
+2) automatic or  dockerfile
+
+manually create image:
+=========================
+>docker run -it ubuntu
+#apt-get update
+#apt-get install -y nginx
+
+
+cameout from container:
+> crtl +pq
+
+convert container to image:
+> docker commit -m "installing nginx on ubuntu" -c 'CMD /usr/bin/nginx =f "daemon off;"' -c 'EXPOSE 80' containerID nginxubuntu
+> docker cpmmit -m "testing" containerID test
+==========
+
+docker pull scratch
+==========
+what is apache or nginx default file folder?
+automatic way to create docker image:
+======================================
+create dockerfile > docker file is plain file which has no extention
+inside the dockerfile
+-----------------------
+FROM ubuntu
+RUN apt-get update
+RUN apt-get install -y vim
+RUN apt-get install -y nginx
+RUN rm /var/www/html/*
+WORKDIR /var/www/html/
+RUN echo "<H1> Good morning from russel </H1>" > index.html
+EXPOSE 80
+CMD /usr/sbin/nginx -g "daemon off;"
+
+------------------------
+docker file directive> is all capital word in dockerfile.
+
+
+>docker build -t venkata .
+
+if we have same name container and after create container with same name
+we don't have same name and tag name with another continer.
+
+>docker run -itd -p 80:80 venkata:latest
+#curl ifconfig.co
+
+
+docker file name convention:
+>vi Dockerfile_kush
+--------------
+FROM venkata:latest
+RUN rm /var/www/html/*
+COPY index.html /var/www/html/
+------------
+>docker build -t mod -f Dockerfile_kush .
+>docker images
+
+how many layer we have? 
+from venkata image whatever layer it has then it will add 2 more layers from Dockerfile_kush file.
+
+>docker run -itd -p 89:80 mod:latest
+>docker ps
+>curl ifconfig.co
+
+github.com/devopstrainer1/edudca/tree/master/Labs
+
+goto > edudca/image
+goto > edudca/docs
+goto > edudca/tree/master/Labs
+
+
+
+What is the diff from ADD vs COPY?
+using ADD > 1.copy the tar.gz file 2. remove after copy  3) unzip the file
+using COPY> 1.only copy the file
+
+how much each image use in space.
+>docker system df
+
+remove unused images which not touch any container: -a means all
+>docker image prune -a
+
+remove image: 
+> docker rmi nginx
+
+convert container into an image:
+>docker export containerID > kush.tar
+>ls
+>ls -lrt
+>docker import kush.tar tar
+>docker images
+
+create account:
+hub.docker.com
+dockerid: touhidul2005
+email: touhidul2005@gmail.com
+pass: Momo2005!
+
+create docker image repository
+> docker tag venkata:v1 dockerID/repo-name:venkata
+> docker login
+> docker push deckerid/repo-name:tagname
+
+
+>docker pull nginx
+
+
+> docker images
+> docker tag tar:latest devopstraner1/feb13:tar
+> docker push devopstrainer1/feb13:tar
+> docker pull java
+
+#docker run vs docker pull
+
+> docker history tar:latest
+
+>docker images
+
+how you can retrive and restore images:
+convert to tar:
+> docker save tar:latest > edureka.tar 
+convert tar to image:
+> docker load < edureka.tar
+
+
+tomorrow class to discuss:
+Docker file directives, CMD vs entrypoint, Multistage builds, volumes, bind mounts
+
+docker.com/play-with-docker
+
