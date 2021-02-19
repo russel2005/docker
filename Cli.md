@@ -1,11 +1,11 @@
-Common Docker Commands:
-docker run
-docker start
-docker stop
-docker build
-docker pull
-docker push
-docker export
+###Common Docker Commands:
+'docker run'
+'docker start'
+'docker stop'
+'docker build'
+'docker pull'
+'docker push'
+'docker export'
 
 
 
