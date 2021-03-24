@@ -2,11 +2,20 @@ feb 13, 14 7am ist
 
 class: feb 06
 diagram share: app.diagrams.net
+ install docker in linux:
+ Docker on Linux:
+================
+# yum install -y docker > for centos
+# sudo ap-get docker > ubuntu
+# service docker status > checking docker status, default is stop
+# service docker start
+# docker --version > confirm docker is installed
 
 
 command: 
 #docker is run or not check
 > service docker status
+> service docker start
 
 #docker start
 #if the image is not present in locally it will download from dockerhub
@@ -15,8 +24,8 @@ command:
 #image check, image for downloaded
 > docker images
 
-#image is running on the background
-> docker ps -a
+#image is running on the background, ps stand for process.
+> docker ps -a 
 
 # the existing image run, when don't need download, 
 # i can use same image in multiple container
