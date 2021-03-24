@@ -1,5 +1,8 @@
 feb 13, 14 7am ist
 
+find all file permision in linux:
+> ls - alrt
+
 class: feb 06
 diagram share: app.diagrams.net
  install docker in linux:
