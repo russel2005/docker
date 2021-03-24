@@ -49,3 +49,14 @@ EXPOSE 80 # <port> [<port>...]
 Adds one or more new volumes to any container created from the image
 
 VOLUME ["/data"] # [<volumes>...], puts /data -> /var/lib/docker/volumes/
+  
+  
+ ========================
+ https://notepad.pw/1soz3l22
+
+git repo:
+github.com/devopstrainer1/edudca
+
+
+YAML 
+https://www.youtube.com/watch?v=o9pT9cWzbnI
